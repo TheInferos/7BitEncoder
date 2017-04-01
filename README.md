@@ -5,7 +5,7 @@ This prodject is based set up for SMS text message encoding and decoding.
 
 ## Current State
 
-This prodject is currently underdevolpment
+This project is currently underdevolpment
 
 ## Changelog
 
