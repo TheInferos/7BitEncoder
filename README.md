@@ -1,13 +1,21 @@
 # 7BitEncoder
 ## What is this prodject
 
-This prodject is based set up for SMS text message encoding and decoding.
+This prodject is based set up for basic SMS text message encoding and decoding.
 
 ## Current State
 
-This project is currently underdevolpment
+This project is currently under devolpment however it will be able to encode and decode simple messages
 
 ## Changelog
+
+### 0.2
+
+Stable Build
+
+1. Added system which adds spaces to the message to bring it up to 9 charrects long.
+2. docopt now working on the command line interface (i have left the arguments printing you can put a # infrot of line 83 ("print argument") if you wish to turn this off.
+3. Removed the 0x infront of all the encodes.
 
 ### 0.1
 

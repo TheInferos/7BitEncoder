@@ -2,7 +2,7 @@
 
 Usage:
   7bit e (-s=STRING | -f=FILE)
-  7bit d <string>
+  7bit d (-s=STRING | -f=FILE)
   7bit --version
   7bit--help
 
@@ -19,9 +19,11 @@ def encode(line):
     binary = []
     bit7List = []
     spacesNeeded=len(line)%8
+    print len(line) % 8
     if spacesNeeded != 0:
         for i in range (8-spacesNeeded):
             line += " "
+            print " we have done this " + str(i) + "times"
     for i in range(len(line)):
         binary.append(format(ord(line[i]), 'b').zfill(8))
     for binIdentifier in range(len(binary)):
@@ -36,7 +38,8 @@ def encode(line):
             bit7List.append(newValue)
     hexList = []
     for bins in bit7List:
-        hexList.append(hex(int(bins, 2)))
+
+        hexList.append(hex(int(bins, 2))[2:])
     message = printList(hexList)
     print message
 
@@ -80,13 +83,20 @@ arguments = docopt(__doc__, version=VERSION)
 print arguments
 if arguments["e"]:
     #do the encode
-    if encode(arguments["--file"]):
-        file_string= open(arguments["--file"]).read()
-        encode(file_string)
+    if arguments['--file'] != "None":
+        file_string= open(arguments['--file']).read()
+        encode(file_string[:-1])
+    elif arguments['--string'] != "None":
+        encode(arguments['--string'])
     else:
-        encode(arguments["<string>"])
+        print "I Believe you failed to select a document or string, if not please PM me so i can try and fix it"
 elif arguments["d"]:
-    #do the decode
-    decode(arguments["<string>"])
+    if arguments['--file'] != "None":
+        file_string= open(arguments['--file']).read()
+        decode(file_string[:-1])
+    elif arguments['--string'] != "None":
+        decode(arguments['--string'])
+    else:
+        print "I Believe you failed to select a document or string, if not please PM me so i can try and fix it"
 else:
     print arguments
