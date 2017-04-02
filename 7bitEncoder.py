@@ -5,7 +5,7 @@ binary = []
 bit7List =[]
 for i in range(len(line)):
     binary.append(format(ord(line[i]), 'b').zfill(8))
-binary = ["XAAAAAAA","XBBBBBBb","XCCCCCcc","XDDDDddd","XEEEeeee","XFFfffff","XGgggggg","Xhhhhhhh"]
+#binary = ["XAAAAAAA","XBBBBBBb","XCCCCCcc","XDDDDddd","XEEEeeee","XFFfffff","XGgggggg","Xhhhhhhh"]
 print binary
 for binIdentifier in range(len(binary)):
     identifier = binIdentifier%8
@@ -21,13 +21,5 @@ for binIdentifier in range(len(binary)):
 print bit7List
 hexList = []
 for bins in bit7List:
-    hexList.append(hex(int(bins, 2)))
+    hexList.append(hex(int(bins, 2))[2:])
 print hexList
-        #print "test...."
-        #print identifier
-        #print binary[binIdentifier]
-        #print binary[binIdentifier][-1:-(identifier+1)]
-        #print binary[binIdentifier][(identifier+1):8]
-        #print "output = " + newValue
-        #print "test endasdasdas
-        #print newValue
